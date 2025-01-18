@@ -1,0 +1,12 @@
+-- Simulate lag for testing purposes
+local lagTime = 10000000000000 -- Set the desired lag duration in seconds
+
+print("Simulating lag...")
+local startTime = tick()
+while tick() - startTime < lagTime do
+    -- Perform a heavy computation to simulate lag
+    for i = 1, 1000000 do
+        math.sqrt(i)
+    end
+end
+print("Lag simulation ended.")
