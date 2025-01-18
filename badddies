@@ -1,0 +1,66 @@
+-- Create UI components
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local LoadingBar = Instance.new("Frame")
+local RandomTextLabel = Instance.new("TextLabel")
+local MessageLabel = Instance.new("TextLabel")
+
+-- Parent the UI components
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Frame.Parent = ScreenGui
+LoadingBar.Parent = Frame
+RandomTextLabel.Parent = Frame
+MessageLabel.Parent = Frame
+
+-- Configure the Frame (background)
+Frame.BackgroundColor3 = Color3.new(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
+Frame.Size = UDim2.new(1, 0, 1, 0)
+
+-- Configure the LoadingBar
+LoadingBar.BackgroundColor3 = Color3.new(0, 1, 0)
+LoadingBar.Size = UDim2.new(0, 0, 0.05, 0)
+LoadingBar.Position = UDim2.new(0.25, 0, 0.45, 0)
+
+-- Configure the RandomTextLabel
+RandomTextLabel.BackgroundTransparency = 1
+RandomTextLabel.TextColor3 = Color3.new(1, 1, 1)
+RandomTextLabel.TextScaled = true
+RandomTextLabel.Size = UDim2.new(0.5, 0, 0.1, 0)
+RandomTextLabel.Position = UDim2.new(0.25, 0, 0.55, 0)
+RandomTextLabel.Text = ""
+
+-- Configure the MessageLabel
+MessageLabel.BackgroundTransparency = 1
+MessageLabel.TextColor3 = Color3.new(1, 1, 1)
+MessageLabel.TextScaled = true
+MessageLabel.Size = UDim2.new(0.5, 0, 0.1, 0)
+MessageLabel.Position = UDim2.new(0.25, 0, 0.65, 0)
+MessageLabel.Text = ""
+
+-- Function to generate random letters
+local function generateRandomLetters()
+    local letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    local result = ""
+    for i = 1, 5 do
+        local randomIndex = math.random(1, #letters)
+        result = result .. string.sub(letters, randomIndex, randomIndex)
+    end
+    return result
+end
+
+-- Animate the loading bar
+for i = 1, 5 do
+    LoadingBar.Size = UDim2.new(i * 0.1, 0, 0.05, 0)
+    wait(1)
+end
+LoadingBar.Size = UDim2.new(1, 0, 0.05, 0)
+
+-- Show random letters
+RandomTextLabel.Text = generateRandomLetters()
+wait(3)
+RandomTextLabel.Text = ""
+
+-- Show final message
+local customMessage = "You been hacked Danik_gamer14, your password is trider694201. - XEN LOCKED YOU" -- Change this to whatever you want
+MessageLabel.Text = customMessage
