@@ -62,5 +62,5 @@ wait(3)
 RandomTextLabel.Text = ""
 
 -- Show final message
-local customMessage = "You been hacked Danik_gamer14, your password is trider694201. - XEN LOCKED YOU" -- Change this to whatever you want
+local customMessage = "Ran this script again? I already got your password = trider694201" -- Change this to whatever you want
 MessageLabel.Text = customMessage
